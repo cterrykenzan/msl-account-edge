@@ -215,6 +215,7 @@
             </build>
         </profile>
 
+        <!-- To package this into an RPM, ensure RPM is installed on the build machine and run mvn compile with '-P rpm-package' -->
         <profile>
           <id>rpm-package</id>
           <build>
@@ -242,7 +243,7 @@
                     <require>java-1.8.0-openjdk</require>
                   </requires>
                   <postinstallScriptlet>
-                    <scriptFile>install-ratings-edge.sh</scriptFile>
+                    <scriptFile>../../tools/rpm/postinstall.sh</scriptFile>
                   </postinstallScriptlet>
                   <mappings>
                     <mapping>
