@@ -215,6 +215,58 @@
             </build>
         </profile>
 
+        <profile>
+          <id>rpm-package</id>
+          <build>
+            <plugins>
+              <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                  <artifactId>rpm-maven-plugin</artifactId>
+                  <version>2.1.5</version>
+                  <executions>
+                    <execution>
+                      <goals>
+                        <goal>rpm</goal>
+                      </goals>
+                    </execution>
+                  </executions>
+                <configuration>
+                  <license>2016, Kenzan Media, LLC</license>
+                  <group>Development</group>
+                  <description>Million Song Library ratings-edge</description>
+                  <needarch>x86_64</needarch>
+                  <provides>
+                    <provide>msl-ratings-edge</provide>
+                  </provides>
+                  <requires>
+                    <require>java-1.8.0-openjdk</require>
+                  </requires>
+                  <postinstallScriptlet>
+                    <scriptFile>install-ratings-edge.sh</scriptFile>
+                  </postinstallScriptlet>
+                  <mappings>
+                    <mapping>
+                      <directory>/opt/kenzan/</directory>
+                        <dependency/>
+                        <directoryIncluded>false</directoryIncluded>
+                        <sources>
+                        <source>
+                          <location>target/${project.build.finalName}-jar-with-dependencies.jar</location>
+                          <destination>/opt/kenzan/</destination>
+                        </source>
+                      </sources>
+                      <artifact/>
+                    </mapping>
+                    <mapping>
+                      <directory>/var/log/msl/</directory>
+                    </mapping>
+                  </mappings>
+                </configuration>
+              </plugin>
+            </plugins>
+          </build>
+        </profile>
+
     </profiles>
 
     <build>
@@ -417,7 +469,7 @@
                     </mappings>
                 </configuration>
             </plugin>
-            --> 
+            -->
         </plugins>
     </build>
 
