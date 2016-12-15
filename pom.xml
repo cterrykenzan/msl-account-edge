@@ -234,16 +234,16 @@
                 <configuration>
                   <license>2016, Kenzan Media, LLC</license>
                   <group>Development</group>
-                  <description>Million Song Library ratings-edge</description>
+                  <description>Million Song Library account-edge</description>
                   <needarch>x86_64</needarch>
                   <provides>
-                    <provide>msl-ratings-edge</provide>
+                    <provide>msl-account-edge</provide>
                   </provides>
                   <requires>
                     <require>java-1.8.0-openjdk</require>
                   </requires>
                   <postinstallScriptlet>
-                    <scriptFile>../../tools/rpm/postinstall.sh</scriptFile>
+                    <scriptFile>install-account-edge.sh</scriptFile>
                   </postinstallScriptlet>
                   <mappings>
                     <mapping>
