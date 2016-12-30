@@ -253,7 +253,7 @@
                         <sources>
                         <source>
                           <location>target/${project.build.finalName}-jar-with-dependencies.jar</location>
-                          <destination>/opt/kenzan/</destination>
+                          <destination>${project.build.finalName}-jar-with-dependencies.jar</destination>
                         </source>
                       </sources>
                       <artifact/>
